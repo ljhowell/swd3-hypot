@@ -1,0 +1,20 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: sw3-hypot
+message: Example code for hypotenuse of  right angle triangle
+type: software
+authors:
+  - given-names: Lewis
+    family-names: Howell
+    email: scljh@leeds.ac.uk
+    affiliation: University of Leeds
+    orcid: 'https://orcid.org/0000-0003-4807-4087'
+repository-code: 'https://github.com/ljhowell/swd3-hypot'
+abstract: Abstract blah blah
+keywords:
+  - Demo
+  - Test
+  - Code
+license: MIT
