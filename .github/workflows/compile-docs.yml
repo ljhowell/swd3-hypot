@@ -1,0 +1,32 @@
+# Workflow to automatically deploy mkdocs website when changes are pushed to main
+name: mkdocs-action
+on:
+  push:
+    branches:
+      - main  # the workflow will run when you push changes to the main branch
+  workflow_dispatch:  # you can also manually trigger the workflow for a different branch
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # the action runs on a virtual ubuntu machine
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials  # this figures out the permissions
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install \  # install any required mkdocs packages or plugins
+              mkdocs-material \
+              mkdocs  # you will have to add additional packages if you pip installed any extra features
+      - run: mkdocs gh-deploy --force  # make mkdocs deploy even if there already exists content on the gh-pages branch
