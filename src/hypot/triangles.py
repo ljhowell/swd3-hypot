@@ -13,8 +13,8 @@ def hypot(opp: float, adj: float) -> float:
     """Calculate hypotenuse of right angle triangle
 
     Args:
-        a (float): Length of the opposite
-        b (float): Length of the adjacent
+        opp (float): Length of the opposite
+        adj (float): Length of the adjacent
 
     Returns:
         float: Length of the hypotenuse

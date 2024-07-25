@@ -1,0 +1,2 @@
+::: hypot
+::: hypot.triangles

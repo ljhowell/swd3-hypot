@@ -1,5 +1,3 @@
-import pytest
-
 from src.hypot.triangles import hypot
 
 
