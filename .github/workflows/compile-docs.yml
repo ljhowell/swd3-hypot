@@ -5,6 +5,9 @@ on:
     branches:
       - main  # the workflow will run when you push changes to the main branch
   workflow_dispatch:  # you can also manually trigger the workflow for a different branch
+
+  pull_request:
+    branches: [ "main" ]
 permissions:
   contents: write
 jobs:
